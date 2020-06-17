@@ -1,0 +1,2 @@
+# MyWebPage
+A django application
