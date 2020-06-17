@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HOME</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" >
+</head>
+
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-dark bg-dark">
+        <nav class="nav">
+            <a class="navbar-brand" href="index">My Web app</a>
+            <a class="nav-link active" href="home" tabindex="-1" aria-disabled="true">Home</a>
+            <a class="nav-link" href="signup">Sign up</a>
+            <a class="nav-link" href="login">Login</a>
+            <a class="nav-link" href="logout">Logout</a>
+        </nav>
+    </nav>
+
+    <!-- alert message -->
+    <div class="d-flex justify-content-center" style="margin-top:40px">
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>{{message}}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Content -->
+    <h1>
+        <div class="text-center">Welcome to <div class="text-primary">My Web Page</div>
+        </div>
+    </h1>
+
+    <!-- list -->
+    <div class="d-flex justify-content-center">
+
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-secondary">
+                This website is made using
+            </li>
+            <li class="list-group-item">
+                <p class="font-weight-normal">OS : elementary os</p>
+            </li>
+            <li class="list-group-item">
+                <p class="font-weight-normal">IDE : Pycharm</p>
+            </li>
+            <li class="list-group-item">
+                <p class="font-weight-normal">Text Editor : Atom</p>
+            </li>
+            <li class="list-group-item">
+                <p class="font-weight-normal">Languages : HTML CSS PYTHON</p>
+            </li>
+            <li class="list-group-item">
+                <p class="font-weight-normal">Tools : Django Bootstrap</p>
+            </li>
+        </ul>
+    </div>
+    <div class="text-center">
+        <br>
+        <p class="font-weight-light">Thanks for visiting</p>
+    </div>
+
+    <!-- footer -->
+    <div class="fixed-bottom">
+        <div class="text-center">
+            <div class="p-3 mb-2 bg-light text-dark">
+                <span style="margin:10px">
+                    Developer Contact :
+                </span>
+                <a href="https://github.com/charan-kumar-137" target="_blank"
+                    style="color:black;margin:10px;">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/--charan-kumar-n--" target="_blank"
+                    style="color:black;margin:10px;">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                </a>
+                <a href="https://t.me/user_Dragon" target="_blank"
+                    style="color:black;margin:10px;">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
