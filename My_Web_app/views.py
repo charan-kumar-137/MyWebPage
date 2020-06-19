@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from . import models
 
 
 # Create your views here.
@@ -34,6 +35,9 @@ def logout(request):  # renders respective page
         return render(request, 'index.html')
     messages.error(request, 'Logout Failed')
     return render(request, 'index.html')
+
+def registration(request):
+    return render(request,'html/registration.html')
 
 
 def handle_signup(request):  # manage form input while signup
@@ -80,3 +84,22 @@ def handle_login(request):  # manage the input while login
 
     messages.error(request, 'Login Failed')
     return redirect('index')
+
+def handle_registration(request):
+    if request.method == 'POST':
+        name = request.POST.get('name','')
+        email = request.POST.get('email','')
+        phone = request.POST.get('phone','')
+        city = request.POST.get('city','')
+        state = request.POST.get('state','')
+        zip = request.POST.get('zip','')
+        description = request.POST.get('description','')
+
+        register = models.Registration(name=name,email=email,phone=phone,city=city,
+                                       state=state,zip=zip,description=description)
+        register.save()
+        messages.success(request,'Registration Success')
+        return render(request,'html/registration.html')
+
+    messages.error(request,'Registration Failed')
+    return render(request,'html/registration.html')
