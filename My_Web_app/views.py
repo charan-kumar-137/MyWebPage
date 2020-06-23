@@ -21,7 +21,9 @@ def login(request):  # renders respective page
 
 @login_required(login_url='login')
 def home(request):  # renders respective page but only if user is logged in or redirect to login_url
-    return render(request, 'html/home.html')
+    post_obj = models.Post.objects.all()
+    context = {'posts':post_obj}
+    return render(request, 'html/home.html',context=context)
 
 
 def signup(request):  # renders respective page
@@ -38,6 +40,9 @@ def logout(request):  # renders respective page
 
 def registration(request):
     return render(request,'html/registration.html')
+
+def post(request):
+    return render(request,'html/post.html')
 
 
 def handle_signup(request):  # manage form input while signup
@@ -103,3 +108,17 @@ def handle_registration(request):
 
     messages.error(request,'Registration Failed')
     return render(request,'html/registration.html')
+
+def handle_post(request):
+    if request.method == 'POST':
+        title = request.POST.get('title', '')
+        author = request.POST.get('author', '')
+        content = request.POST.get('content', '')
+
+        post_obj = models.Post(title=title, author=author, content=content)
+        post_obj.save()
+        messages.success(request, 'Post uploaded successfully')
+        return redirect('home')
+
+    messages.error(request,'Post upload failed')
+    return render(request,'html/post.html')

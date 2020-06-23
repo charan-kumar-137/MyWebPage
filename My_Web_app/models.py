@@ -13,3 +13,12 @@ class Registration(models.Model):
 
     def __str__(self):
         return self.name
+
+class Post(models.Model):
+    pno = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=30)
+    author = models.CharField(max_length=20)
+    content = models.TextField(max_length=200)
+
+    def __int__(self):
+        return self.pno

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HOME</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 </head>
 
 <body>
@@ -42,52 +42,40 @@
         </div>
     </h1>
 
-    <!-- list -->
     <div class="d-flex justify-content-center">
-
-        <ul class="list-group">
-            <li class="list-group-item list-group-item-secondary">
-                This website is made using
-            </li>
-            <li class="list-group-item">
-                <p class="font-weight-normal">OS : elementary os</p>
-            </li>
-            <li class="list-group-item">
-                <p class="font-weight-normal">IDE : Pycharm</p>
-            </li>
-            <li class="list-group-item">
-                <p class="font-weight-normal">Text Editor : Atom</p>
-            </li>
-            <li class="list-group-item">
-                <p class="font-weight-normal">Languages : HTML CSS PYTHON</p>
-            </li>
-            <li class="list-group-item">
-                <p class="font-weight-normal">Tools : Django Bootstrap</p>
-            </li>
-        </ul>
+        <a href="post"><button type="button" class="btn btn-primary">Add Post</button></a>
     </div>
-    <div class="text-center">
-        <br>
-        <p class="font-weight-light">Thanks for visiting</p>
+
+    <!-- list -->
+    <div class="mb-5">
+        {% for post in posts %}
+        <div class="d-flex justify-content-center mt-2">
+            <div class="card" style="width: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ post.author }}</h6>
+                    <p class="card-text">{{ post.content }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
     </div>
 
     <!-- footer -->
     <div class="fixed-bottom">
         <div class="text-center">
-            <div class="p-3 mb-2 bg-light text-dark">
+            <div class="p-3 bg-light text-dark">
                 <span style="margin:10px">
                     Developer Contact :
                 </span>
-                <a href="https://github.com/charan-kumar-137" target="_blank"
-                    style="color:black;margin:10px;">
+                <a href="https://github.com/charan-kumar-137" target="_blank" style="color:black;margin:10px;">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://linkedin.com/in/--charan-kumar-n--" target="_blank"
-                    style="color:black;margin:10px;">
+                <a href="https://linkedin.com/in/--charan-kumar-n--" target="_blank" style="color:black;margin:10px;">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://t.me/user_Dragon" target="_blank"
-                    style="color:black;margin:10px;">
+                <a href="https://t.me/user_Dragon" target="_blank" style="color:black;margin:10px;">
                     <i class="fab fa-telegram"></i>
                 </a>
             </div>
